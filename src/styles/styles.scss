@@ -1,5 +1,8 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
+html, body {
+  color: #000;
+}
 /**
 * Menubar
 */
@@ -38,6 +41,10 @@
 
         &:hover {
           color: #ececec;
+        }
+
+        &.selected {
+          color: #e3e3e3;
         }
       }
     }

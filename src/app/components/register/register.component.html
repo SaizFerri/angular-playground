@@ -1,3 +1,29 @@
-<p>
-  register works!
-</p>
+<div class="row justify-content-center pt-5">
+  <div class="col-12 col-md-6 col-lg-6">    
+    <label for="">Name</label>
+    <input [(ngModel)]="user.name" class="form-control">
+  </div>
+</div>
+<div class="row justify-content-center pt-3">
+  <div class="col-12 col-md-6 col-lg-6">    
+    <label for="">Email</label>
+    <input [(ngModel)]="user.email" class="form-control">    
+  </div>
+</div>
+<div class="row justify-content-center pt-3">
+  <div class="col-12 col-md-6 col-lg-6">    
+    <label for="">Password</label>
+    <input type="password" [(ngModel)]="user.password" class="form-control">    
+  </div>
+</div>
+<div class="row justify-content-center pt-3">
+  <div class="col-12 col-md-6 col-lg-6">    
+    <label for="">Repeat password</label>
+    <input type="password" [(ngModel)]="user.repeatPassword" class="form-control">    
+  </div>
+</div>
+<div class="row justify-content-center pt-3">
+  <div class="col-12 col-md-6 col-lg-6">
+    <button class="btn btn-primary" (click)="registerUser()">Register</button>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserLogIn } from '../../models/userLogIn';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,20 +15,23 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
-  token: string = '';
-
-  constructor(private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['']);
+    }
   }
 
   logUser(): void {
     this.authService.logIn(this.user)
       .subscribe(token => {
-        this.token = token;
-        console.log(token);
-        
-      });
+        console.log('Login successfull');
+        this.authService.setTokenInLocalStorage(token.token);
+        this.router.navigate(['']);
+      },
+      err => console.log('Login Failed')
+    );
   }
 
 }

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
 import { UserLogIn } from '../models/userLogIn';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
+import { JwtToken } from '../models/jwtToken';
+import { UserRegister } from '../models/userRegister';
 
 @Injectable({
   providedIn: 'root'
@@ -13,28 +14,26 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
-    // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
-  }
-
-  logIn(user: UserLogIn): Observable<any> {
+  logIn(user: UserLogIn): Observable<JwtToken> {
     const apiPath: string = 'users/login';
 
-    return this.http.post<UserLogIn>(environment.apiUrl + apiPath, user)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http.post<JwtToken>(environment.apiUrl + apiPath, user);
+  }
+
+  register(user: UserRegister): Observable<any> {
+    const apiPath: string = 'users/register';
+    return this.http.post<any>(environment.apiUrl + apiPath, user);
+  }
+
+  setTokenInLocalStorage(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  getTokenFromLocalStorage(): string {
+    if (localStorage.getItem('token')) {
+      return localStorage.getItem('token');
+    } else {
+      return null;
+    }
   }
 }

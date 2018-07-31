@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { UserRegister } from '../../models/userRegister';
+import { UserRegisterModel } from '../../models/user-register.model';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +9,7 @@ import { UserRegister } from '../../models/userRegister';
 })
 export class RegisterComponent implements OnInit {
 
-  user: UserRegister = {
+  user: UserRegisterModel = {
     name: '',
     email: '',
     password: '',

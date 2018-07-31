@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserLogIn } from '../../models/userLogIn';
+import { UserLogInModel } from '../../models/user-logIn.model';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user: UserLogIn = {
+  user: UserLogInModel = {
     email: '',
     password: ''
   }
@@ -23,11 +23,12 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  logUser(): void {
+  logIn(): void {
     this.authService.logIn(this.user)
       .subscribe(token => {
         console.log('Login successfull');
         this.authService.setTokenInLocalStorage(token.token);
+        this.authService.isLoggedIn$.next(true);
         this.router.navigate(['']);
       },
       err => console.log('Login Failed')

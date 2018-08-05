@@ -29,7 +29,14 @@ export class AuthService {
 
   register(user: UserRegisterModel): Observable<any> {
     const apiPath: string = 'users/register';
-    return this.http.post<any>(environment.apiUrl + apiPath, user);
+    const { name, surname, email, password, repeatPassword } = user;
+    const finalUser = {
+      name: name + ' ' + surname,
+      email,
+      password,
+      repeatPassword
+    }
+    return this.http.post<any>(environment.apiUrl + apiPath, finalUser);
   }
 
   setTokenInLocalStorage(token: string) {

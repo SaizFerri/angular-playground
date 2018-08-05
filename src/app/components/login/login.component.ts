@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
+  error: boolean = false;
+  success: boolean = false;
 
   user: UserLogInModel = {
     email: '',
@@ -29,9 +31,18 @@ export class LoginComponent implements OnInit {
         console.log('Login successfull');
         this.authService.setTokenInLocalStorage(token.token);
         this.authService.isLoggedIn$.next(true);
-        this.router.navigate(['']);
+        this.success = true;
+        setTimeout(() => {
+          this.success = false;
+          this.router.navigate(['']);
+        }, 1000)
       },
-      err => console.log('Login Failed')
+      err => {
+        this.error = true;
+        setTimeout(() => {
+          this.error = false;
+        }, 3000);        
+      }
     );
   }
 

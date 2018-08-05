@@ -12,6 +12,8 @@ import { ProtectedComponent } from './components/protected/protected.component';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { UsersService } from './services/users.service';
+import { VerifyComponent } from './components/verify/verify.component';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -24,7 +26,8 @@ export function getToken() {
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    VerifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,12 +41,13 @@ export function getToken() {
         whitelistedDomains: ['localhost:3000'],
         blacklistedRoutes: [
           'localhost:3000/users/login',
-          'localhost:3000/users/register'
+          'localhost:3000/users/register',
+          'localhost:3000/users/verify'
         ]
       }
     })
   ],
-  providers: [AuthService],
+  providers: [AuthService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

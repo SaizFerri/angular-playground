@@ -6,12 +6,16 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProtectedComponent } from './components/protected/protected.component';
 import { VerifyComponent } from './components/verify/verify.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'verify/:hash', component: VerifyComponent },
+  { path: 'resetPasswordConfirmEmail', component: ResetPasswordComponent },
+  { path: 'resetPassword/:token', component: NewPasswordComponent },
   { path: 'protected', component: ProtectedComponent }, 
 ]
 

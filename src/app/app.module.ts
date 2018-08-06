@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { UsersService } from './services/users.service';
 import { VerifyComponent } from './components/verify/verify.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -28,6 +30,8 @@ export function getToken() {
     RegisterComponent,
     ProtectedComponent,
     VerifyComponent,
+    ResetPasswordComponent,
+    NewPasswordComponent,
   ],
   imports: [
     BrowserModule,

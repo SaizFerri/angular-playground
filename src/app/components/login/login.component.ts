@@ -46,4 +46,8 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  resetPassword(): void {
+    this.router.navigate(['resetPasswordConfirmEmail']);
+  }
+
 }

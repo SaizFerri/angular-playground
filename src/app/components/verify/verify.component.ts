@@ -21,21 +21,23 @@ export class VerifyComponent implements OnInit {
 
   ngOnInit() {
     this.hash = this.route.snapshot.paramMap.get('hash');
+
     const verifyHash: VerifyHashModel = {
       hash: this.hash
     };
 
     this.usersService.verifyUser(verifyHash)
       .subscribe(() => {
-        console.log('Verify success');
         this.loading = false;
         this.success = true;
+        setTimeout(() => {
+          this.router.navigate(['']);
+        }, 1000);
       },
       err => {
-        console.log('Verify error');
         this.loading = false;
         this.error = true;
-      })
+      });
   }
 
 }

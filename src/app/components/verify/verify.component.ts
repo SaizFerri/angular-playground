@@ -25,7 +25,7 @@ export class VerifyComponent implements OnInit {
       hash: this.hash
     };
 
-    this.usersService.verify(verifyHash)
+    this.usersService.verifyUser(verifyHash)
       .subscribe(() => {
         console.log('Verify success');
         this.loading = false;

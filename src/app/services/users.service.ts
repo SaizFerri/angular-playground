@@ -14,8 +14,8 @@ export class UsersService {
 
   constructor(private authService: AuthService, private http: HttpClient) { }
 
-  verify(hash: VerifyHashModel): Observable<any> {
-    const apiPath:string = 'users/verify/'
-    return this.http.put(`${environment.apiUrl}${apiPath}${hash.hash}`, hash);
+  verifyUser(hash: VerifyHashModel): Observable<any> {
+    const apiPath:string = 'users/verify'
+    return this.http.put(`${environment.apiUrl}${apiPath}`, hash);
   }
 }

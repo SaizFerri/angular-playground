@@ -18,6 +18,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { NewPasswordComponent } from './components/new-password/new-password.component';
 import { VerifyBarComponent } from './components/verify-bar/verify-bar.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { AdminModule } from './admin/admin.module';
+import { environment } from '../environments/environment';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -42,19 +45,21 @@ export function getToken() {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AdminModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: getToken,
-        whitelistedDomains: ['localhost:3000'],
+        whitelistedDomains: environment.whiteListedDomains,
         blacklistedRoutes: [
           'localhost:3000/users/login',
           'localhost:3000/users/register',
-          'localhost:3000/users/verify'
+          'localhost:3000/users/verify',
+          'localhost:3000/users/resetPassword'
         ]
       }
     })
   ],
-  providers: [AuthService, UsersService, AuthGuard],
+  providers: [AuthService, UsersService, AuthGuard, AdminAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

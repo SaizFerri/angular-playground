@@ -20,23 +20,28 @@ export class UsersService {
     this.jwt = new JwtHelperService();
   }
 
+  getUsers():Observable<any> {
+    const apiPath = "/users";
+    return this.http.get(`${environment.apiUrl}${apiPath}`);
+  }
+
   verifyUser(hash: VerifyHashModel): Observable<any> {
-    const apiPath: string = 'users/verify';
+    const apiPath: string = '/users/verify';
     return this.http.put(`${environment.apiUrl}${apiPath}`, hash);
   }
 
   getResetPasswordToken(email: ResetPasswordEmailModel): Observable<any> {
-    const apiPath: string = 'users/resetPassword';
+    const apiPath: string = '/users/resetPassword';
     return this.http.post(`${environment.apiUrl}${apiPath}`, email);
   }
 
   resetPassword(params: NewPasswordModel): Observable<any> {
-    const apiPath: string = 'users/resetPassword';
+    const apiPath: string = '/users/resetPassword';
     return this.http.put(`${environment.apiUrl}${apiPath}`, params); 
   }
 
   resendVerificationEmail(): Observable<any> {
-    const apiPath: string = 'users/resendVerificationEmail';
+    const apiPath: string = '/users/resendVerificationEmail';
     const token = this.authService.getTokenFromLocalStorage();
     const decodedToken = this.jwt.decodeToken(token);
     return this.http.post(`${environment.apiUrl}${apiPath}`, { email: decodedToken.email });
@@ -45,6 +50,7 @@ export class UsersService {
   isAccountVerified(): boolean {
     const token = this.authService.getTokenFromLocalStorage();
     const decodedToken = this.jwt.decodeToken(token);
+
     return decodedToken.verified;
   }
 }

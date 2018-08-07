@@ -9,10 +9,10 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import * as _ from 'lodash';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AdminAuthGuard implements CanActivate {
 
   jwt: JwtHelperService;
-  roles: string[] = ['user', 'admin']
+  role: string = 'admin';
 
   constructor (
     private readonly authService: AuthService,
@@ -32,8 +32,8 @@ export class AuthGuard implements CanActivate {
 
     const { roles } = this.jwt.decodeToken(token);
 
-    const hasRole = () => this.roles.some((role) => _.includes(roles, role));
+    const hasRole = _.includes(roles, this.role);
 
-    return hasRole();
+    return hasRole;
   }
 }

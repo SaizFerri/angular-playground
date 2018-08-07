@@ -9,7 +9,7 @@ import { UsersService } from '../../services/users.service';
 })
 export class VerifyBarComponent implements OnInit {
 
-  show: boolean = true;
+  show: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -19,8 +19,7 @@ export class VerifyBarComponent implements OnInit {
   ngOnInit() {
     this.authService.isLoggedIn$.subscribe((success) => {
       if(success) {
-        if (!this.userService.isAccountVerified()) {
-          console.log(success);
+        if (!this.userService.isAccountVerified()) {          
           this.show = success;
         }
       } else {
@@ -32,7 +31,8 @@ export class VerifyBarComponent implements OnInit {
   resendEmail() {
     this.userService.resendVerificationEmail()
       .subscribe(
-        success => this.show = false
+        success => this.show = false,
+        err => this.show = false
       );
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VerifyHashModel } from '../../models/verify-hash.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-verify',
@@ -14,6 +15,7 @@ export class VerifyComponent implements OnInit {
   hash: string;
 
   constructor(
+    private authService: AuthService,
     private usersService: UsersService,
     private route: ActivatedRoute,
     private router: Router
@@ -27,11 +29,13 @@ export class VerifyComponent implements OnInit {
     };
 
     this.usersService.verifyUser(verifyHash)
-      .subscribe(() => {
+      .subscribe(
+        success => {
         this.loading = false;
         this.success = true;
+        this.authService.logOut();
         setTimeout(() => {
-          this.router.navigate(['']);
+          this.router.navigate(['login']);
         }, 1000);
       },
       err => {

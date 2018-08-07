@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-protected',
@@ -7,23 +8,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ProtectedComponent implements OnInit {
 
-  form: FormGroup = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    address: new FormGroup({
-      street: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      zip: new FormControl('')
-    })
-  });
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
 
-  onSubmit() {
-    console.warn(this.form.value);
+  ngOnInit() {
   }
 }

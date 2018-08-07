@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   error: boolean = false;
   success: boolean = false;
+  lastEmail: string;
 
   user: UserLogInModel = {
     email: '',
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(): void {
+    this.lastEmail = this.user.email;
     this.authService.logIn(this.user)
       .subscribe(token => {
         console.log('Login successfull');
@@ -39,15 +41,12 @@ export class LoginComponent implements OnInit {
       },
       err => {
         this.error = true;
+        this.user.email = this.lastEmail;
         setTimeout(() => {
           this.error = false;
         }, 3000);        
       }
     );
-  }
-
-  resetPassword(): void {
-    this.router.navigate(['resetPasswordConfirmEmail']);
   }
 
 }

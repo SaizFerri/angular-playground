@@ -8,6 +8,14 @@ html, body {
   color: cornflowerblue!important;
   cursor: pointer;
 
+  &.black {
+    color: #000!important;
+
+    &:hover {
+      text-decoration: none!important;
+    }
+  }
+
   &:hover {
     text-decoration: underline!important;
   }
@@ -59,4 +67,12 @@ html, body {
       }
     }
   }
+}
+
+/**
+* VerifyBar
+*/
+.verify-wrapper {
+  background-color: #FFCC00;
+  padding: 12px 0;
 }

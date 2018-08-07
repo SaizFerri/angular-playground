@@ -16,6 +16,8 @@ import { UsersService } from './services/users.service';
 import { VerifyComponent } from './components/verify/verify.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { VerifyBarComponent } from './components/verify-bar/verify-bar.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -32,6 +34,7 @@ export function getToken() {
     VerifyComponent,
     ResetPasswordComponent,
     NewPasswordComponent,
+    VerifyBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,7 @@ export function getToken() {
       }
     })
   ],
-  providers: [AuthService, UsersService],
+  providers: [AuthService, UsersService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

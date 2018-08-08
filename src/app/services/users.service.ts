@@ -26,7 +26,7 @@ export class UsersService {
   }
 
   getUser(id: string): Observable<any> {
-    const apiPath = "/users/";
+    const apiPath = "/users/user/";
     return this.http.get(`${environment.apiUrl}${apiPath}${id}`);
   }
 

@@ -21,6 +21,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { AdminModule } from './admin/admin.module';
 import { environment } from '../environments/environment';
+import { MetarService } from './services/metar.service';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -53,7 +54,7 @@ export function getToken() {
       }
     })
   ],
-  providers: [AuthService, UsersService, AuthGuard, AdminAuthGuard],
+  providers: [AuthService, UsersService, MetarService, AuthGuard, AdminAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

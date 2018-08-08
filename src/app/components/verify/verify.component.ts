@@ -36,7 +36,7 @@ export class VerifyComponent implements OnInit {
         this.authService.logOut();
         setTimeout(() => {
           this.router.navigate(['login']);
-        }, 1000);
+        }, 2000);
       },
       err => {
         this.loading = false;

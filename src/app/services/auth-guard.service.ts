@@ -7,12 +7,13 @@ import { UsersService } from './users.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import * as _ from 'lodash';
+import { Roles } from '../admin/enum/roles.enum';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
   jwt: JwtHelperService;
-  roles: string[] = ['user', 'admin']
+  roles: string[] = [Roles.USER, Roles.ADMIN]
 
   constructor (
     private readonly authService: AuthService,

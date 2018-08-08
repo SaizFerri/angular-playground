@@ -1,0 +1,33 @@
+<form *ngIf="(user$ | async)" #userForm="ngForm" (ngSubmit)="updateUser(userForm)" autocomplete="off">
+  <div class="row justify-content-center pt-2">
+    <div class="col-12 col-md-6 col-lg-6">    
+      <label>Name</label>
+      <input [(ngModel)]="user.name" required minlength="2" class="form-control" name="name" #name="ngModel">
+      <div class="alert alert-danger mt-1" [hidden]="name.valid || name.pristine || name.untouched">
+        Name must be at least 2 characters long.
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center pt-3">
+    <div class="col-12 col-md-6 col-lg-6">    
+      <label for="">Email</label>
+      <input [(ngModel)]="user.email" required minlength="5" type="email" class="form-control" name="email" disabled>  
+    </div>
+  </div>
+  <div class="row justify-content-center pt-3">
+    <div class="col-12 col-md-6 col-lg-6">
+      <button class="btn btn-success" type="submit" [disabled]="userForm.form.invalid">Update</button>
+    </div>
+  </div>
+</form>
+<form #rolesForm="ngForm" class="pt-2">
+  <div class="row justify-content-center pt-2">
+    <div class="col-12 col-md-6 col-lg-6">    
+      <h2>Roles</h2>
+      <div *ngFor="let role of roles">
+        <label for="">{{role.role}}</label>
+        <input type="checkbox" value="{{role.role}}" [checked]="role.checked">
+      </div>
+    </div>
+  </div>
+</form>

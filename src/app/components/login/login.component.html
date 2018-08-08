@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-<form #logInForm="ngForm" (ngSubmit)="logIn(); logInForm.reset()" autocomplete="off">
+<form #logInForm="ngForm" (ngSubmit)="logIn(logInForm)" autocomplete="off">
   <div class="row justify-content-center pt-2" [class.pt-5]="!error" [class.pt-5]="!success">
     <div class="col-12 col-md-6 col-lg-6">    
       <label for="">Email</label>
@@ -33,12 +33,12 @@
   </div>
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">
-      <a class="a-link" routerLink="/resetPasswordConfirmEmail">Forgot your password?</a>
+      <button class="btn btn-primary" [disabled]="logInForm.form.invalid" type="submit">Login</button>
     </div>
   </div>
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">
-      <button class="btn btn-primary" [disabled]="logInForm.form.invalid" type="submit">Login</button>
+      <a class="a-link" routerLink="/resetPasswordConfirmEmail">Forgot your password?</a>
     </div>
   </div>
 </form>

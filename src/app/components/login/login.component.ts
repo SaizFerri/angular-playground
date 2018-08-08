@@ -1,8 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
-import { UserLogInModel } from '../../models/user-logIn.model';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
+import { NgForm } from '@angular/forms';
+
+export class UserLogin {
+  email: string;
+  password: string;
+
+  constructor(email?: string, password?: string) {
+    this.email = email;
+    this.password = password;
+  }
+}
 
 @Component({
   selector: 'app-login',
@@ -11,12 +21,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   error: boolean = false;
   success: boolean = false;
-  lastEmail: string;
 
-  user: UserLogInModel = {
-    email: '',
-    password: ''
-  }
+  user: UserLogin = new UserLogin();
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -26,22 +32,25 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  logIn(): void {
-    this.lastEmail = this.user.email;
+  logIn(loginForm: NgForm): void {
     this.authService.logIn(this.user)
       .subscribe(token => {
-        console.log('Login successfull');
+        loginForm.reset();
+        
         this.authService.setTokenInLocalStorage(token.token);
         this.authService.isLoggedIn$.next(true);
         this.success = true;
+
         setTimeout(() => {
           this.success = false;
           this.router.navigate(['']);
         }, 1000)
       },
       err => {
+        const lastUser = new UserLogin(this.user.email);
         this.error = true;
-        this.user.email = this.lastEmail;
+        loginForm.reset(lastUser);
+
         setTimeout(() => {
           this.error = false;
         }, 3000);        

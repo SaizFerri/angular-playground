@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-<form #registerForm="ngForm" (ngSubmit)="registerUser(); registerForm.reset();" autocomplete="off">
+<form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)" autocomplete="off">
   <div class="row justify-content-center pt-2" [class.pt-5]="!isError" [class.pt-5]="!success">
     <div class="col-12 col-md-6 col-lg-6">    
       <label>Name</label>

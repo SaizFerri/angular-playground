@@ -20,9 +20,14 @@ export class UsersService {
     this.jwt = new JwtHelperService();
   }
 
-  getUsers():Observable<any> {
+  getUsers(): Observable<any> {
     const apiPath = "/users";
     return this.http.get(`${environment.apiUrl}${apiPath}`);
+  }
+
+  getUser(id: string): Observable<any> {
+    const apiPath = "/users/";
+    return this.http.get(`${environment.apiUrl}${apiPath}${id}`);
   }
 
   verifyUser(hash: VerifyHashModel): Observable<any> {

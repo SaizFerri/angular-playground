@@ -49,13 +49,7 @@ export function getToken() {
     JwtModule.forRoot({
       config: {
         tokenGetter: getToken,
-        whitelistedDomains: environment.whiteListedDomains,
-        blacklistedRoutes: [
-          'localhost:3000/users/login',
-          'localhost:3000/users/register',
-          'localhost:3000/users/verify',
-          'localhost:3000/users/resetPassword'
-        ]
+        whitelistedDomains: environment.whiteListedDomains
       }
     })
   ],

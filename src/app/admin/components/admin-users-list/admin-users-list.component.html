@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <th scope="row">{{ user._id }}</th>
+        <th scope="row"><a routerLink="/undinosaurio/users/{{user.id}}">{{ user.id }}</a></th>
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.verified }}</td>

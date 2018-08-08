@@ -3,6 +3,7 @@
         <div class="col-12 menubar">
             <h3 class="menubar_title"><a routerLink="/">Skylogbook</a></h3>
             <ul class="menubar_list">
+                <li class="menubar_list--item" *ngIf="showAdminButton"><a routerLink="/undinosaurio/users" style="color: yellow;">Admin</a></li>
                 <li class="menubar_list--item">{{ user }}</li>
                 <li class="menubar_list--item"><a routerLink="/protected" routerLinkActive="selected">Protected</a></li>
                 <li class="menubar_list--item" *ngIf="!(isLoggedIn$ | async)"><a routerLink="/register" routerLinkActive="selected">Register</a></li>

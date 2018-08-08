@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AuthService } from '../../services/auth.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { AdminAuthGuard } from '../../services/admin-auth-guard.service';
 
 @Component({
   selector: 'app-menubar',
@@ -10,19 +10,18 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class MenuBarComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
-  jwt: JwtHelperService;
   user: string;
+  showAdminButton: boolean = false;
 
-  constructor(private authService: AuthService) {
-    this.jwt = new JwtHelperService();
-  }
+  constructor(private authService: AuthService, private readonly adminGuard: AdminAuthGuard) {}
 
   ngOnInit() {
     this.isLoggedIn$ = this.authService.isLoggedIn$;
     this.authService.isLoggedIn$.subscribe((success) => {
       if (success) {
-        const token = this.authService.getTokenFromLocalStorage();
-        const { email } = this.jwt.decodeToken(token);
+        const { email } = this.authService.decodeToken();
+
+        this.showAdminButton = this.adminGuard.canActivate();
         this.user = email;
       } else {
         this.user = '';

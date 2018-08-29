@@ -49,8 +49,4 @@ export class MetarComponent implements OnInit {
         }
       )
   }
-
-  get testData() {
-    return this.data;
-  }
 }

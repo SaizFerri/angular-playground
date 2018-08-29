@@ -21,6 +21,7 @@ export class UserLogin {
 export class LoginComponent implements OnInit {
   error: boolean = false;
   success: boolean = false;
+  isLoading: boolean = false;
 
   user: UserLogin = new UserLogin();
 
@@ -33,8 +34,10 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(loginForm: NgForm): void {
+    this.isLoading = true;
     this.authService.logIn(this.user)
       .subscribe(token => {
+        this.isLoading = false;
         loginForm.reset();
         
         this.authService.setTokenInLocalStorage(token.token);
@@ -49,6 +52,7 @@ export class LoginComponent implements OnInit {
       err => {
         const lastUser = new UserLogin(this.user.email);
         this.error = true;
+        this.isLoading = false;
         loginForm.reset(lastUser);
 
         setTimeout(() => {

@@ -25,17 +25,21 @@ export class UserRegister {
 })
 export class RegisterComponent {
   error: boolean = false;
-  passwordError: boolean = false;
   success: boolean = false;
+  passwordError: boolean = false;
+
+  isLoading: boolean = false;
 
   user: UserRegister = new UserRegister('', '');
 
   constructor(private router: Router, private authService: AuthService) { }
 
   registerUser(registerForm: NgForm): void {
+    this.isLoading = true;
     const lastUser: UserRegister = new UserRegister(this.user.name, this.user.surname, this.user.email);
     
     if(this.user.password !== this.user.repeatPassword) {
+      this.isLoading = false;
       this.passwordError = true;
       registerForm.reset(lastUser);
 
@@ -46,6 +50,7 @@ export class RegisterComponent {
     }    
     this.authService.register(this.user)
       .subscribe(() => {
+        this.isLoading = false;
         this.success = true;
         registerForm.reset();
 
@@ -58,6 +63,7 @@ export class RegisterComponent {
         const lastUser: UserRegister = new UserRegister(this.user.name, this.user.surname);
 
         this.error = true;
+        this.isLoading = false;
         registerForm.reset(lastUser);
 
         setTimeout(() => {

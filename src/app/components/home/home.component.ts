@@ -7,20 +7,9 @@ import { MetarService } from '../../services/metar.service';
 })
 export class HomeComponent {
 
-  code: string;
-
-  constructor(private readonly metarService: MetarService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  getMetar() {
-    this.metarService.getMetar(this.code.toUpperCase())
-      .subscribe(
-        (success) => {
-          console.log(success);
-        }
-      )
   }
 
 }

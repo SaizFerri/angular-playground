@@ -12,11 +12,10 @@ export class MetarService {
   constructor(private http: HttpClient) { }
 
   getMetar(code: string): Observable<any> {
-    return this.http.get(`https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=${code}&hoursBeforeNow=1`)
-      .pipe(
-        map((res) => {
-          //return parser.toJson(res);
-        })
-      )
+    return this.http.get(`${environment.metarApiUrl}${code}/decoded`, {
+      headers: {
+        'X-API-Key': '66a5358551855a6388356d5bdb',
+      }
+    });
   }
 }

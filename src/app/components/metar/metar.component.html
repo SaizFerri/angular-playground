@@ -1,0 +1,35 @@
+<form #metarForm="ngForm" autocomplete="off" (ngSubmit)="getMetar()">
+  <input [(ngModel)]="code" type="text" class="form-control" name="code">
+  <button type="submit" class="btn btn-default">Search</button>
+</form>
+
+<div class="row" *ngIf="data">
+  <div class="col-12">
+    <div class="metar">
+      <h4>{{ data.name }}</h4>
+      <div class="metar-header">
+        <div class="metar-badge" [ngClass]="
+        {
+          'metar-badge-vfr': flightCategories.VFR,
+          'metar-badge-mvfr': flightCategories.MVFR,
+          'metar-badge-ifr': flightCategories.IFR,
+          'metar-badge-lifr': flightCategories.LIFR
+        }
+        ">{{ data.flight_category }}
+        </div>
+        <h4 class="metar-station-icao">{{ data.icao }}</h4>
+      </div>
+      <div class="metar-raw">
+        <span class="metar-label">Raw: </span>
+        <p><strong>{{ data.raw_text }}</strong></p>
+      </div>
+      <div class="metar-decoded">
+        <p class="metar-label">Decoded: </p>
+        <ul>
+          <li>Date: {{ observedDate }}</li>
+          <li>Time: {{ observedTime }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

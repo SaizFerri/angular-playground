@@ -25,6 +25,7 @@ export class MenuBarComponent implements OnInit {
         this.user = email;
       } else {
         this.user = '';
+        this.showAdminButton = false;
       }
     });
   }

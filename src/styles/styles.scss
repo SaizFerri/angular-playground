@@ -76,3 +76,45 @@ html, body {
   background-color: #FFCC00;
   padding: 12px 0;
 }
+
+/**
+* Metar
+*/
+.metar {
+  .metar-header {
+    padding-bottom: 1rem;
+
+    .metar-badge {
+      display: inline-block;
+      padding: .20rem .30rem;
+      border-radius: 5px;
+      font-size: .75rem;
+      color: #ffffff;
+      background-color: #ececec;
+  
+      &.metar-badge-vfr {
+        background-color: #0A9141;  
+      }
+      &.metar-badge-mvfr {
+        background-color: #107CC3;  
+      }
+      &.metar-badge-ifr {
+        background-color: #D92A22;  
+      }
+      &.metar-badge-lifr {
+        background-color: #DD1C7B;  
+      }
+    }
+  
+    .metar-station-icao {
+      display: inline-block;
+      vertical-align: -15%;
+      padding-left: .5rem;
+      margin: 0;
+    }
+  }
+
+  .metar-label {
+    margin: .5rem 0;
+  }
+}

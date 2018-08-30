@@ -4,6 +4,77 @@ html, body {
   color: #000;
 }
 
+/**
+* Input
+*/
+.input {
+  border: 0;
+  appearance: none;
+  outline: none;
+  transition: all .1s linear;
+  border-bottom: 2px solid #000;
+  padding: .25rem 0;
+
+  &:focus {
+    border-color: cornflowerblue;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  width: auto;
+  .input-dropdown {
+    margin: 0;
+    position: absolute;
+    width: 120%;
+    padding: 0;
+    border: 1px solid #e3e3e3;
+    max-height: 400px;
+    background-color: #fff;
+    overflow: auto;
+    z-index: 9999;
+
+    li {
+      list-style: none;
+      padding: .5rem;
+      border-bottom: 1px solid #e3e3e3;
+
+      &:hover {
+        background-color: #e3e3e3;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      span {
+        font-size: .75rem;
+      }
+    }
+  }
+}
+
+/**
+* Button
+*/
+.button {
+  border: none;
+  appearance: none;
+  transition: all .1s linear;
+  background-color: cornflowerblue;
+  display: inline-block;
+  color: #fff;
+  padding: .25rem .5rem;
+
+  &:hover {
+    background-color: #107CC3;
+  }
+
+  &:disabled {
+    background-color: gray;
+  }
+}
+
 .a-link {
   color: cornflowerblue!important;
   cursor: pointer;
@@ -80,6 +151,11 @@ html, body {
 /**
 * Metar
 */
+.metar-form {
+  display: flex;
+  align-items: center;
+}
+
 .metar {
   .metar-header {
     padding-bottom: 1rem;

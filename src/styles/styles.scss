@@ -1,6 +1,11 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "settings/settings.global.scss";
+@import "settings/settings.colors.scss";
+@import "elements/elements.fonts.scss";
 
 html, body {
+  font-family: $global-font-family;
+  font-size: $global-font-size;
   color: #000;
 }
 
@@ -107,7 +112,7 @@ html, body {
   align-items: center;
   padding: 16px 32px;
   color: white;
-  background-color: cornflowerblue;
+  background-color: $color-blue;
 
   .menubar_list {
     display: flex;

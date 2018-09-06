@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ProtectedComponent } from './components/protected/protected.component';
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
 import { VerifyComponent } from './components/verify/verify.component';
@@ -24,6 +23,8 @@ import { environment } from '../environments/environment';
 import { MetarService } from './services/metar.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MetarComponent } from './components/metar/metar.component';
+import { LogbookModule } from './logbook/logbook.module';
+import { LogbookService } from './services/logbook.service';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -36,7 +37,6 @@ export function getToken() {
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProtectedComponent,
     VerifyComponent,
     ResetPasswordComponent,
     NewPasswordComponent,
@@ -50,6 +50,7 @@ export function getToken() {
     ReactiveFormsModule,
     HttpClientModule,
     AdminModule,
+    LogbookModule,
     AngularFontAwesomeModule,
     JwtModule.forRoot({
       config: {
@@ -58,7 +59,7 @@ export function getToken() {
       }
     })
   ],
-  providers: [AuthService, UsersService, MetarService, AuthGuard, AdminAuthGuard],
+  providers: [AuthService, UsersService, MetarService, AuthGuard, AdminAuthGuard, LogbookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

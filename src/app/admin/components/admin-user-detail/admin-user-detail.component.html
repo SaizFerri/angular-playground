@@ -1,3 +1,18 @@
+<div *ngIf="error" class="row justify-content-center pt-2">
+  <div class="col-12 col-md-6 col-lg-6">
+    <div class="alert alert-danger">
+      <pre>{{ errorTxt | json }}</pre>
+    </div>
+  </div>
+</div>
+<div *ngIf="success" class="row justify-content-center pt-2">
+  <div class="col-12 col-md-6 col-lg-6">
+    <div class="alert alert-success">
+      Updated user!
+    </div>
+  </div>
+</div>
+
 <form *ngIf="(user$ | async)" #userForm="ngForm" (ngSubmit)="updateUser(userForm)" autocomplete="off">
   <div class="row justify-content-center pt-2">
     <div class="col-12 col-md-6 col-lg-6">    
@@ -11,7 +26,7 @@
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">    
       <label for="">Email</label>
-      <input [(ngModel)]="user.email" required minlength="5" type="email" class="form-control" name="email" disabled>  
+      <input [(ngModel)]="user.email" required minlength="5" type="email" class="form-control" name="email">  
     </div>
   </div>
   <div class="row justify-content-center pt-3">
@@ -20,14 +35,20 @@
     </div>
   </div>
 </form>
-<form #rolesForm="ngForm" class="pt-2">
+
+<form #rolesForm="ngForm" (ngSubmit)="updateRoles()" class="pt-2">
   <div class="row justify-content-center pt-2">
     <div class="col-12 col-md-6 col-lg-6">    
       <h2>Roles</h2>
-      <div *ngFor="let role of roles">
+      <div *ngFor="let role of roles; let i = index;">
         <label for="">{{role.role}}</label>
-        <input type="checkbox" value="{{role.role}}" [checked]="role.checked">
+        <input [(ngModel)]="roles[i].checked" type="checkbox" [disabled]="role.role === 'user'" value="{{role.role}}" [checked]="role.checked" name="role-{{role.role}}">
       </div>
+    </div>
+  </div>
+  <div class="row justify-content-center pt-3">
+    <div class="col-12 col-md-6 col-lg-6">
+      <button class="btn btn-success" type="submit" [disabled]="rolesForm.form.invalid">Update roles</button>
     </div>
   </div>
 </form>

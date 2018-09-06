@@ -26,8 +26,18 @@ export class UsersService {
   }
 
   getUser(id: string): Observable<any> {
-    const apiPath = "/users/user/";
+    const apiPath: string = '/users/user/';
     return this.http.get(`${environment.apiUrl}${apiPath}${id}`);
+  }
+
+  updateUser(params: any): Observable<any> {
+    const apiPath: string = '/users/user/';
+    return this.http.put(`${environment.apiUrl}${apiPath}${params.id}`, params);
+  }
+
+  updateRoles(params: any): Observable<any> {
+    const apiPath: string = '/users/roles';
+    return this.http.put(`${environment.apiUrl}${apiPath}`, params);
   }
 
   verifyUser(hash: VerifyHashModel): Observable<any> {

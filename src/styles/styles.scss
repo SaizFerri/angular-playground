@@ -9,6 +9,10 @@ html, body {
   color: #000;
 }
 
+.row {
+  margin: 0;
+}
+
 /**
 * Input
 */
@@ -197,5 +201,37 @@ html, body {
 
   .metar-label {
     margin: .5rem 0;
+  }
+}
+
+.filter {
+  width: 100%;
+  height: 100%;
+  background-color: #e3e3e3;
+  padding: 1rem;
+}
+
+.log {
+  width: 100%;
+  background-color: #e3e3e3;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  .log-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .line {
+      position: relative;
+      background-color: black;
+      height: 1px;
+      width: 60%;
+    }
+    
+    .log-time {
+
+    }
   }
 }

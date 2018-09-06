@@ -25,6 +25,9 @@ export class AdminUserDetailComponent implements OnInit {
   user: User;
   roles: any[] = [];
   user$: Observable<User>;
+  success: boolean = false;
+  error: boolean = false;
+  errorTxt: string;
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -41,7 +44,7 @@ export class AdminUserDetailComponent implements OnInit {
     );
   }
 
-  initRoles() {
+  initRoles(): void {
     Object.keys(Roles).map(key => {
       if (this.user.roles.indexOf(Roles[key]) > -1) {
         this.roles.push({
@@ -57,8 +60,57 @@ export class AdminUserDetailComponent implements OnInit {
     });
   }
 
-  updateUser(userForm: NgForm) {
+  updateUser(): void {
+    this.userService.updateUser(this.user)
+      .subscribe(
+        success => {
+          this.success = true;
+          setTimeout(() => {
+            this.success = false;
+          }, 3000);
+        },
+        err => {
+          this.error = true;
+          this.errorTxt = err.error;
+          setTimeout(() => {
+            this.error = false;
+            this.errorTxt = "";
+          }, 5000);
+        }
+      )
+  }
 
+  updateRoles(): void {
+    const roles: Roles[] = []; 
+
+    this.roles.forEach(role => {
+      if (role.checked) {
+        roles.push(role.role);
+      }
+    });
+
+    const params = {
+      id: this.user.id,
+      roles
+    }
+    
+    this.userService.updateRoles(params)
+      .subscribe(
+        success => {
+          this.success = true;
+          setTimeout(() => {
+            this.success = false;
+          }, 3000);
+        },
+        err => {
+          this.error = true;
+          this.errorTxt = err.error;
+          setTimeout(() => {
+            this.error = false;
+            this.errorTxt = "";
+          }, 5000);
+        }
+      )
   }
 
 }

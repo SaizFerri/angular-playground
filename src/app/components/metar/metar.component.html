@@ -1,49 +1,51 @@
-<h2 class="mt-4">METAR & TAF</h2>
-<form #metarForm="ngForm" autocomplete="off" class="mt-2" class="metar-form" (ngSubmit)="getMetar()">
-  <div class="input-wrapper">
-    <input [(ngModel)]="code.icao" placeholder="Icao code" required maxlength="4" (keyup)="getAirportOcurrences()"  type="text" class="input" name="code">
-    <ul *ngIf="airportOcurrences" class="input-dropdown">
-      <li *ngFor="let airport of airportOcurrences" (click)="selectAirport(airport)">
-        <p>{{ airport.icao }}</p>
-        <span>{{ airport.name }}, {{ airport.city }}, {{ airport.state }}</span>
-      </li>
-    </ul> 
-  </div>
-  <div class="pt-1 ml-1">
-    <button type="submit" [disabled]="!code.valid" class="button">Search</button>
-  </div>
-</form> 
+<div class="container">
+  <h2 class="mt-4">METAR & TAF</h2>
+  <form #metarForm="ngForm" autocomplete="off" class="mt-2" class="metar-form" (ngSubmit)="getMetar()">
+    <div class="input-wrapper">
+      <input [(ngModel)]="code.icao" placeholder="Icao code" required maxlength="4" (keyup)="getAirportOcurrences()"  type="text" class="input" name="code">
+      <ul *ngIf="airportOcurrences" class="input-dropdown">
+        <li *ngFor="let airport of airportOcurrences" (click)="selectAirport(airport)">
+          <p>{{ airport.icao }}</p>
+          <span>{{ airport.name }}, {{ airport.city }}, {{ airport.state }}</span>
+        </li>
+      </ul> 
+    </div>
+    <div class="pt-1 ml-1">
+      <button type="submit" [disabled]="!code.valid" class="button">Search</button>
+    </div>
+  </form> 
 
-<div class="row mt-2" *ngIf="metarError">
-  <div class="col-12 col-md-6 col-lg-6">
-    <div class="alert alert-danger">
-      {{ metarError }}
+  <div class="row mt-2" *ngIf="metarError">
+    <div class="col-12 col-md-6 col-lg-6">
+      <div class="alert alert-danger">
+        {{ metarError }}
+      </div>
     </div>
   </div>
-</div>
-<div class="row mt-2" *ngIf="metar">
-  <div class="col-12">
-    <div class="metar">
-      <h4>{{ metar.name }}</h4>
-      <div class="metar-header">
-        <div class="metar-badge" [ngClass]="
-        {
-          'metar-badge-vfr': flightCategories.VFR,
-          'metar-badge-mvfr': flightCategories.MVFR,
-          'metar-badge-ifr': flightCategories.IFR,
-          'metar-badge-lifr': flightCategories.LIFR
-        }
-        ">{{ metar.flight_category }}
+  <div class="row mt-2" *ngIf="metar">
+    <div class="col-12">
+      <div class="metar">
+        <h4>{{ metar.name }}</h4>
+        <div class="metar-header">
+          <div class="metar-badge" [ngClass]="
+          {
+            'metar-badge-vfr': flightCategories.VFR,
+            'metar-badge-mvfr': flightCategories.MVFR,
+            'metar-badge-ifr': flightCategories.IFR,
+            'metar-badge-lifr': flightCategories.LIFR
+          }
+          ">{{ metar.flight_category }}
+          </div>
+          <h4 class="metar-station-icao">{{ metar.icao }}</h4>
         </div>
-        <h4 class="metar-station-icao">{{ metar.icao }}</h4>
-      </div>
-      <div class="metar-raw">
-        <span class="metar-label">Raw METAR: </span>
-        <p><strong>{{ metar.raw_text }}</strong></p>
-      </div>
-      <div class="metar-taf" *ngIf="taf">
-        <p class="metar-label">Raw TAF: </p>
-        <p><strong>{{ taf.raw_text }}</strong></p>
+        <div class="metar-raw">
+          <span class="metar-label">Raw METAR: </span>
+          <p><strong>{{ metar.raw_text }}</strong></p>
+        </div>
+        <div class="metar-taf" *ngIf="taf">
+          <p class="metar-label">Raw TAF: </p>
+          <p><strong>{{ taf.raw_text }}</strong></p>
+        </div>
       </div>
     </div>
   </div>

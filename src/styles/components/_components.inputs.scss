@@ -1,0 +1,152 @@
+/*
+* Inputs
+*/
+.input {
+  border: 0;
+  appearance: none;
+  outline: none;
+  transition: all linear .1s;
+  border: 1px solid #e3e3e3;
+  padding: .5rem .75rem;
+
+  &:focus {
+    border-color: $color-blue;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  width: auto;
+  .input-dropdown {
+    margin: 0;
+    position: absolute;
+    width: 120%;
+    padding: 0;
+    border: 1px solid #e3e3e3;
+    max-height: 400px;
+    background-color: #fff;
+    overflow: auto;
+    z-index: 9999;
+
+    li {
+      list-style: none;
+      padding: .5rem;
+      border-bottom: 1px solid #e3e3e3;
+
+      &:hover {
+        background-color: #e3e3e3;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      span {
+        font-size: .75rem;
+      }
+    }
+  }
+}
+
+/*
+* Checkbox
+*/
+.checkbox,
+.checkbox_slide,
+.radio {
+  visibility: hidden;
+  border-radius: 0;
+  opacity: 0;
+  width: 1.278rem;
+  height: 1.278rem;
+  position: absolute;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:disabled {
+    + .label,
+    + .label:before {
+      color: #e3e3e3;
+      border-color: #e3e3e3;
+    }
+
+    + input[type="checkbox"] + .label:before {
+      background-color: #e3e3e3;
+    }
+
+    &:hover {
+      + label,
+      + label:before {
+          color: #e3e3e3;
+          border-color: #e3e3e3;
+      }
+    }
+  }
+}
+
+.checkbox + .label,
+.radio + .label {
+  display: inline-block;
+  font-family: $global-font-family;
+  font-size: $global-font-size;
+  color: #000;
+  cursor: pointer;
+  position: relative;
+  width: auto;
+  padding-left: .75rem;
+  margin-left: 1rem;
+}
+
+.checkbox + .label:before,
+.radio + .label:before {
+  line-height: 1.2;
+  content: "";
+  display: inline-block;
+  width: 1.238rem;
+  height: 1.238rem;
+  position: absolute;
+  left: -1rem;
+  background-color: #ffffff;
+  border: 1px solid #e3e3e3;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.checkbox {
+  &:checked {
+    + .label:before {
+      background-color: $color-blue;
+      border: 1px solid $color-blue;
+      content: "\2713";
+      //font-family: $icon-font-family;
+      //font-size: $global-font-size;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    + .label {
+      color: #000;
+    }
+  }
+
+  &:hover {
+    + .label,
+    + .label:before {
+      border-color: $color-blue;
+    }
+
+    + .label {
+      color: #000;
+    }
+  }
+
+  &:focus {
+    + .label:before {
+      border-color: $color-blue;
+    }
+  }
+}

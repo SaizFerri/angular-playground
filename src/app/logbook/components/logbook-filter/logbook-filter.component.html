@@ -1,20 +1,45 @@
-<div class="sticky-top pt-4">
-  <div class="filter">
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-    inputs <br>
-  </div>
+<button *ngIf="!show" class="button" (click)="showFilterPanel()">Filter &nbsp; <fa name="sliders"></fa></button>
+<div *ngIf="show" class="filter">
+    <div class="filter-pickers">
+        <div class="filter-date pr-4">
+            <span>Date: </span>
+            <div class="filter-date-pickers pt-2">
+                <input class="input mr-2" placeholder="From" type="text">
+                <input class="input" placeholder="To" type="text">
+            </div>
+        </div>
+        <div class="filter-airports">
+            <span>Aerodromes: </span>
+            <div class="filter-airport-pickers pt-2">
+                <input class="input mr-2" placeholder="From" type="text">
+                <input class="input" placeholder="To" type="text">
+            </div>
+        </div>
+    </div>
+    <div class="filter-fields pt-2">
+        <div class="filter-daytime">
+            <span>Daytime: </span>
+            <div class="filter-daytime-checkboxes pt-2">
+                <div class="">
+                    <input class="checkbox" type="checkbox" id="daytime">
+                    <label class="label" for="daytime">Day</label>
+                </div>
+                <div class="pl-2">
+                    <input class="checkbox" type="checkbox" id="nighttime">
+                    <label class="label" for="nighttime">Night</label>
+                </div>
+            </div>
+        </div>
+        <div class="filter-aircraft pl-4">
+            <span>Aircraft: </span>
+            <div class="filter-aicraft-inputs pt-2">
+                <input type="text" class="input mr-2" placeholder="Registration">
+                <input type="text" class="input mr-2" placeholder="Model">
+                <input type="text" class="input" placeholder="Type">
+            </div>
+        </div>
+    </div>
+    <div class="filter-action">
+        <button class="button button-primary mt-2" (click)="showFilterPanel()">Apply filter</button>
+    </div>
 </div>

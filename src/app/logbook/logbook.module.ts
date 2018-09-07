@@ -6,11 +6,13 @@ import { LogbookFilterComponent } from './components/logbook-filter/logbook-filt
 import { LogbookParentComponent } from './components/logbook-parent/logbook-parent.component';
 import { LogbookRoutingModule } from './logbook-routing.module';
 import { LogComponentComponent } from './components/log-component/log-component.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   imports: [
     CommonModule,
-    LogbookRoutingModule
+    LogbookRoutingModule,
+    AngularFontAwesomeModule
   ],
   declarations: [LogbookListComponent, LogbookDetailComponent, LogbookFilterComponent, LogbookParentComponent, LogComponentComponent]
 })

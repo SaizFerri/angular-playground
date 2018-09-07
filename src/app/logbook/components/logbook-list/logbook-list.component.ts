@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LogbookService } from '../../../services/logbook.service';
 
 @Component({
@@ -9,7 +10,7 @@ export class LogbookListComponent implements OnInit {
 
   data: [{}];
 
-  constructor(private readonly logbookService: LogbookService) { }
+  constructor(private readonly logbookService: LogbookService, private readonly router: Router) { }
 
   ngOnInit() {
     this.logbookService.getLogs()
@@ -21,6 +22,10 @@ export class LogbookListComponent implements OnInit {
           console.log(err);
         }
       )
+  }
+
+  navigateToDetail(id) {
+    this.router.navigate([`/logbook/logs/${id}`]);
   }
 
 }

@@ -1,8 +1,24 @@
 <div class="log mb-2">
-  <div class="log-head">
-    <h1 class="log-time">{{ log.time.start }}</h1>
-    <span class="line"></span>
-    <h1 class="log-time">{{ log.time.end }}</h1>
+  <div class="log-date">
+    <h1 class="m-0">{{ day }}</h1>
+    <div class="log-date-month">
+      <span>{{ month }} {{ year }}</span>
+    </div>
   </div>
-  <div class="log-body"></div>
+  <div class="log-info">
+    <div class="log-info-time">
+      <span class="pr-2">{{ log.time.start }}</span>      
+      <span class="line"></span>
+      <span class="pl-2 pr-2">{{ log.time.total }} hrs</span>
+      <span class="line"></span>
+      <span class="pl-2">{{ log.time.end }}</span>
+    </div>
+    <div class="log-info-fromto">
+      <h4 class="m-0">{{ log.from.name }}</h4>
+      <h4 class="m-0">{{ log.to.name }}</h4>
+    </div>
+    <div class="log-info-aircraft">
+      <fa name="plane"></fa> <span> {{ log.aircraft.model }}, {{ log.aircraft.registration }}</span>
+    </div>
+  </div>
 </div>

@@ -2,6 +2,8 @@
 @import "settings/settings.global.scss";
 @import "settings/settings.colors.scss";
 @import "elements/elements.fonts.scss";
+@import "elements/elements.inputs.scss";
+@import "components/components.inputs.scss";
 
 html, body {
   font-family: $global-font-family;
@@ -9,58 +11,17 @@ html, body {
   color: #000;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
 .row {
   margin: 0;
-}
-
-/**
-* Input
-*/
-.input {
-  border: 0;
-  appearance: none;
-  outline: none;
-  transition: all .1s linear;
-  border-bottom: 2px solid #000;
-  padding: .25rem 0;
-
-  &:focus {
-    border-color: cornflowerblue;
-  }
-}
-
-.input-wrapper {
-  position: relative;
-  width: auto;
-  .input-dropdown {
-    margin: 0;
-    position: absolute;
-    width: 120%;
-    padding: 0;
-    border: 1px solid #e3e3e3;
-    max-height: 400px;
-    background-color: #fff;
-    overflow: auto;
-    z-index: 9999;
-
-    li {
-      list-style: none;
-      padding: .5rem;
-      border-bottom: 1px solid #e3e3e3;
-
-      &:hover {
-        background-color: #e3e3e3;
-      }
-
-      p {
-        margin: 0;
-      }
-
-      span {
-        font-size: .75rem;
-      }
-    }
-  }
 }
 
 /**
@@ -68,19 +29,36 @@ html, body {
 */
 .button {
   border: none;
+  width: auto;
+  display: inline-block;
   appearance: none;
   transition: all .1s linear;
-  background-color: cornflowerblue;
-  display: inline-block;
-  color: #fff;
-  padding: .25rem .5rem;
+  background-color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+  color: #000;
+  padding: .5rem .75rem;
 
   &:hover {
+    color: $color-white;
+    border-color: #107CC3;
     background-color: #107CC3;
   }
 
   &:disabled {
+    color: #fff;
     background-color: gray;
+    border-color: gray;
+  }
+
+  &.button-primary {
+    color: $color-white;
+    background-color: $color-blue;
+    border-color: $color-blue;
+
+    &:hover {
+      border-color: #107CC3;
+      background-color: #107CC3;
+    }
   }
 }
 
@@ -205,33 +183,64 @@ html, body {
 }
 
 .filter {
-  width: 100%;
-  height: 100%;
-  background-color: #e3e3e3;
+  height: auto;
+  border-bottom: 1px solid #ececec;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .filter-pickers {
+    display: flex;
+  }
+
+  .filter-fields {
+    display: flex;
+
+    .filter-daytime {
+      
+      .filter-daytime-checkboxes {
+        display: flex;
+      }
+    }
+  }
 }
 
 .log {
   width: 100%;
-  background-color: #e3e3e3;
   padding: 1rem 1.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #ececec;
+  transition: border linear .1s;
 
-  .log-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  &:hover {
+    border: 1px solid $color-blue;
+  }
 
-    .line {
-      position: relative;
-      background-color: black;
-      height: 1px;
-      width: 60%;
+  .log-date {
+    flex-basis: 8%;
+  }
+
+  .log-info {
+    flex-basis: 92%;
+    width: 100%;
+
+    .log-info-time {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .line {
+        background-color: black;
+        height: 1px;
+        width: 30%;
+      }
     }
-    
-    .log-time {
 
+    .log-info-fromto {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

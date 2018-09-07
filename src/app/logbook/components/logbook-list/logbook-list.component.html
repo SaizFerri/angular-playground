@@ -1,10 +1,10 @@
-<div class="wrapper">
-  <div class="row">
-    <div class="col-3">
-      <app-logbook-filter></app-logbook-filter>
-    </div>
-    <div class="col-7 pt-4">
-      <app-log-component *ngFor="let log of data" [log]="log"></app-log-component>
-    </div>
+<div class="row">
+  <div class="col-12 pt-4">
+    <app-logbook-filter></app-logbook-filter>
   </div>
+</div>
+<div class="row pt-4">
+  <ul class="col-12">
+    <li *ngFor="let log of data"><app-log-component [log]="log" (click)="navigateToDetail(log._id)"></app-log-component></li>
+  </ul>
 </div>

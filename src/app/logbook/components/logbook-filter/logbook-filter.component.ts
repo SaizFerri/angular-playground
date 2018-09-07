@@ -6,9 +6,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogbookFilterComponent implements OnInit {
 
+  show: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showFilterPanel(): void {
+    this.show = !this.show;
   }
 
 }

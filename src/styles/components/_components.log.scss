@@ -1,0 +1,42 @@
+/*
+* Log
+*/
+.log {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid transparent;
+  border-bottom: 1px solid $color-grey;
+  transition: border linear .1s;
+
+  &:hover {
+    border: 1px solid $color-blue;
+  }
+
+  .log-date {
+    flex-basis: 8%;
+  }
+
+  .log-info {
+    flex-basis: 92%;
+    width: 100%;
+
+    .log-info-time {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .line {
+        background-color: $color-black;
+        height: 1px;
+        width: 30%;
+      }
+    }
+
+    .log-info-fromto {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

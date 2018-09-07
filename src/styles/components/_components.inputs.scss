@@ -2,11 +2,13 @@
 * Inputs
 */
 .input {
+  display: block;
+  width: 100%;
   border: 0;
   appearance: none;
   outline: none;
   transition: all linear .1s;
-  border: 1px solid #e3e3e3;
+  border: 1px solid $color-grey;
   padding: .5rem .75rem;
 
   &:focus {
@@ -22,7 +24,7 @@
     position: absolute;
     width: 120%;
     padding: 0;
-    border: 1px solid #e3e3e3;
+    border: 1px solid $color-grey;
     max-height: 400px;
     background-color: #fff;
     overflow: auto;
@@ -31,10 +33,10 @@
     li {
       list-style: none;
       padding: .5rem;
-      border-bottom: 1px solid #e3e3e3;
+      border-bottom: 1px solid $color-grey;
 
       &:hover {
-        background-color: #e3e3e3;
+        background-color: $color-grey;
       }
 
       p {
@@ -68,19 +70,19 @@
   &:disabled {
     + .label,
     + .label:before {
-      color: #e3e3e3;
-      border-color: #e3e3e3;
+      color: $color-grey;
+      border-color: $color-grey;
     }
 
     + input[type="checkbox"] + .label:before {
-      background-color: #e3e3e3;
+      background-color: $color-grey;
     }
 
     &:hover {
       + label,
       + label:before {
-          color: #e3e3e3;
-          border-color: #e3e3e3;
+          color: $color-grey;
+          border-color: $color-grey;
       }
     }
   }
@@ -108,8 +110,8 @@
   height: 1.238rem;
   position: absolute;
   left: -1rem;
-  background-color: #ffffff;
-  border: 1px solid #e3e3e3;
+  background-color: $color-white;
+  border: 1px solid $color-grey;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -124,7 +126,7 @@
       //font-family: $icon-font-family;
       //font-size: $global-font-size;
       font-weight: 700;
-      color: #ffffff;
+      color: $color-white;
       text-align: center;
     }
 

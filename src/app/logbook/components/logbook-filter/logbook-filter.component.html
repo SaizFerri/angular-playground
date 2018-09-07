@@ -1,41 +1,55 @@
 <button *ngIf="!show" class="button" (click)="showFilterPanel()">Filter &nbsp; <fa name="sliders"></fa></button>
 <div *ngIf="show" class="filter">
-    <div class="filter-pickers">
-        <div class="filter-date pr-4">
+    <div class="row no-gutters">
+        <div class="col-sm-6 col-lg-6">
             <span>Date: </span>
-            <div class="filter-date-pickers pt-2">
-                <input class="input mr-2" placeholder="From" type="text">
-                <input class="input" placeholder="To" type="text">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 p-lg-0">
+                    <input class="input mr-2" placeholder="From" type="text">
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <input class="input" placeholder="To" type="text">
+                </div>
             </div>
         </div>
-        <div class="filter-airports">
+        <div class="col-sm-6 col-lg-6">
             <span>Aerodromes: </span>
-            <div class="filter-airport-pickers pt-2">
-                <input class="input mr-2" placeholder="From" type="text">
-                <input class="input" placeholder="To" type="text">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 px-sm-1 p-lg-0">
+                    <input class="input mr-2" placeholder="From" type="text">
+                </div>
+                <div class="col-sm-12 col-lg-6 px-sm-0">
+                    <input class="input" placeholder="To" type="text">
+                </div>
             </div>
         </div>
     </div>
-    <div class="filter-fields pt-2">
-        <div class="filter-daytime">
+    <div class="row no-gutters pt-2">
+        <div class="col-sm-12 col-lg-3">
             <span>Daytime: </span>
-            <div class="filter-daytime-checkboxes pt-2">
-                <div class="">
+            <div class="row no-gutters">
+                <div class="col-6">
                     <input class="checkbox" type="checkbox" id="daytime">
                     <label class="label" for="daytime">Day</label>
                 </div>
-                <div class="pl-2">
+                <div class="col-6">
                     <input class="checkbox" type="checkbox" id="nighttime">
                     <label class="label" for="nighttime">Night</label>
                 </div>
             </div>
         </div>
-        <div class="filter-aircraft pl-4">
+        <div class="col-sm-12 col-lg-9">
             <span>Aircraft: </span>
-            <div class="filter-aicraft-inputs pt-2">
-                <input type="text" class="input mr-2" placeholder="Registration">
-                <input type="text" class="input mr-2" placeholder="Model">
-                <input type="text" class="input" placeholder="Type">
+            <div class="row">
+                <div class="col-sm-12 col-lg-4 pl-0">
+                    <input type="text" class="input mr-2" placeholder="Registration">
+                </div>
+                <div class="col-sm-12 col-lg-4 pl-0">
+                    <input type="text" class="input mr-2" placeholder="Model">
+                </div>
+                <div class="col-sm-12 col-lg-4 pl-0">
+                    <input type="text" class="input" placeholder="Type">
+                </div>
             </div>
         </div>
     </div>

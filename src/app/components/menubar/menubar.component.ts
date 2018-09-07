@@ -12,6 +12,7 @@ export class MenuBarComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   user: string;
   showAdminButton: boolean = false;
+  show: boolean = true;
 
   constructor(private authService: AuthService, private readonly adminGuard: AdminAuthGuard) {}
 
@@ -32,5 +33,9 @@ export class MenuBarComponent implements OnInit {
 
   logOut(): void {
     this.authService.logOut();
+  }
+
+  showResponsiveMenu(): void {
+    this.show = !this.show;
   }
 }

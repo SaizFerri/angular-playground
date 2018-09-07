@@ -23,7 +23,7 @@
   <div class="row justify-content-center pt-2" [class.pt-5]="!isError" [class.pt-5]="!success">
     <div class="col-12 col-md-6 col-lg-6">    
       <label>Name</label>
-      <input [(ngModel)]="user.name" required minlength="2" class="form-control" name="name" #name="ngModel">
+      <input [(ngModel)]="user.name" required minlength="2" class="input" name="name" #name="ngModel">
       <div class="alert alert-danger mt-1" [hidden]="name.valid || name.pristine || name.untouched">
         Name must be at least 2 characters long.
       </div>
@@ -32,7 +32,7 @@
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">    
       <label>Surname</label>
-      <input [(ngModel)]="user.surname" required minlength="2" class="form-control" name="surname" #surname="ngModel">
+      <input [(ngModel)]="user.surname" required minlength="2" class="input" name="surname" #surname="ngModel">
       <div class="alert alert-danger mt-1" [hidden]="surname.valid || surname.pristine || surname.untouched">
         Surname must be at least 2 characters long.
       </div>
@@ -41,7 +41,7 @@
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">    
       <label for="">Email</label>
-      <input [(ngModel)]="user.email" required minlength="5" type="email" class="form-control" name="email" #email="ngModel" email>
+      <input [(ngModel)]="user.email" required minlength="5" type="email" class="input" name="email" #email="ngModel" email>
       <div class="alert alert-danger mt-1" [hidden]="email.valid || email.pristine || email.untouched">
         Email not valid.
       </div>    
@@ -50,7 +50,7 @@
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">    
       <label for="">Password</label>
-      <input type="password" [(ngModel)]="user.password" required minlength="4" class="form-control" name="password" #password="ngModel">
+      <input type="password" [(ngModel)]="user.password" required minlength="4" class="input" name="password" #password="ngModel">
       <div class="alert alert-danger mt-1" [hidden]="password.valid || password.pristine || password.untouched">
         Password must be at least 4 characters long.
       </div>     
@@ -59,7 +59,7 @@
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">    
       <label for="">Repeat password</label>
-      <input type="password" [(ngModel)]="user.repeatPassword" required minlength="4" class="form-control" name="repeatPassword" #repeatPassword="ngModel"> 
+      <input type="password" [(ngModel)]="user.repeatPassword" required minlength="4" class="input" name="repeatPassword" #repeatPassword="ngModel"> 
       <div class="alert alert-danger mt-1" [hidden]="repeatPassword.valid || repeatPassword.pristine || repeatPassword.untouched">
         Password must be at least 4 characters long.
       </div>  
@@ -67,7 +67,7 @@
   </div>
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">
-      <button class="btn btn-primary" type="submit" [disabled]="registerForm.form.invalid">
+      <button class="button button-primary" type="submit" [disabled]="registerForm.form.invalid">
         <span *ngIf="!isLoading">Register</span>
         <fa *ngIf="isLoading" name="spinner" size="lg" animation="spin"></fa>
       </button>

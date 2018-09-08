@@ -2,10 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-log-component',
-  templateUrl: './log-component.component.html'
+  selector: 'app-log',
+  templateUrl: './log.component.html'
 })
-export class LogComponentComponent implements OnInit {
+export class LogComponent implements OnInit {
 
   @Input() log;
   day: string;

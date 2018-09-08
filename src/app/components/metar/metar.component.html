@@ -1,7 +1,7 @@
 <h2 class="mt-4">METAR & TAF</h2>
 <form #metarForm="ngForm" autocomplete="off" class="mt-2" class="metar-form" (ngSubmit)="getMetar()">
   <div class="input-wrapper">
-    <input [(ngModel)]="code.icao" placeholder="Icao code" required maxlength="4" (keyup)="getAirportOcurrences()"  type="text" class="input" name="code">
+    <input [(ngModel)]="code.icao" placeholder="Icao code" required maxlength="4" (keyup)="getAirportOcurrences()"  type="text" class="input m-0" name="code">
     <ul *ngIf="airportOcurrences" class="input-dropdown">
       <li *ngFor="let airport of airportOcurrences" (click)="selectAirport(airport)">
         <p>{{ airport.icao }}</p>

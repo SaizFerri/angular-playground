@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
 
         setTimeout(() => {
           this.success = false;
-          this.router.navigate(['']);
+          this.router.navigate(['/logbook/logs']);
         }, 1000)
       },
       err => {

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:3000/api",
-  whiteListedDomains: ['localhost:3000'],
+  apiUrl: "http://192.168.178.116:3000/api",
+  whiteListedDomains: ['192.168.178.116:3000'],
   metarApiUrl: "https://api.checkwx.com",
   metarApiKey: "66a5358551855a6388356d5bdb",
 };

@@ -10,6 +10,7 @@
   transition: all linear .1s;
   border: 1px solid $color-grey;
   padding: .5rem .75rem;
+  margin-bottom: .5rem;
 
   &:focus {
     border-color: $color-blue;
@@ -92,7 +93,6 @@
 .radio + .label {
   display: inline-block;
   font-family: $global-font-family;
-  font-size: $global-font-size;
   color: #000;
   cursor: pointer;
   position: relative;

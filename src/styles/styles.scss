@@ -1,22 +1,30 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // SETTINGS
-@import "settings/settings.global.scss";
-@import "settings/settings.colors.scss";
+@import "settings/setting.global.scss";
+@import "settings/setting.colors.scss";
 
 // ELEMENTS
-@import "elements/elements.fonts.scss";
-@import "elements/elements.inputs.scss";
+@import "elements/element.fonts.scss";
+@import "elements/element.inputs.scss";
 
 // COMPONENTS
-@import "components/components.inputs.scss";
-@import "components/components.log.scss";
+@import "components/component.accordion.scss";
+@import "components/component.inputs.scss";
+@import "components/component.log.scss";
 
 html, body {
   font-family: $global-font-family;
   font-size: $global-font-size;
   color: #000;
 }
+
+
+@media (max-width: 576px) { 
+  html, body {
+    //font-size: $small-font-size;
+  }
+} 
 
 ul {
   margin: 0;
@@ -147,7 +155,11 @@ ul {
       }
 
       .menubar_list--item {
-        padding: 0 0 .5rem 0;
+        padding: 0 0 1rem 0;
+
+        &:first-child {
+          padding: .5rem 0 1rem 0;
+        }
       }
     }
   }

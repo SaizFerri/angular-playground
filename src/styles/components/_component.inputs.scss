@@ -4,7 +4,6 @@
 .input {
   display: block;
   width: 100%;
-  border: 0;
   appearance: none;
   outline: none;
   transition: all linear .1s;
@@ -14,6 +13,24 @@
 
   &:focus {
     border-color: $color-blue;
+  }
+}
+
+.f2l-input {
+  display: block;
+  position: relative;
+  width: auto;
+
+  .input {
+    padding-right: 2rem;
+  }
+  
+  .f2l-input-icon {
+    position: absolute;
+    z-index: 998;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -48,6 +65,27 @@
         font-size: .75rem;
       }
     }
+  }
+}
+
+.f2l-select-wrapper {
+  display: block;
+  position: relative;
+  width: auto;
+
+  &::after {
+    position: absolute;
+    z-index: 999;
+    content: "";
+    width: .75rem;
+    height: .75rem;
+    border-bottom: 1px solid $color-black;
+    border-right: 1px solid $color-black;
+    top: 30%;
+    right: 1rem;
+    transform: rotate(45deg);
+    pointer-events: none;
+    //transform: translateY(-50%);
   }
 }
 

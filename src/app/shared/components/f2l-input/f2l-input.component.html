@@ -1,0 +1,4 @@
+<div class="f2l-input">
+    <input (focus)="isFocus = true" (blur)="isFocus = false" type="text" [placeholder]="placeholder" class="input" #input (keyup)="value.emit(input.value)">
+    <fa *ngIf="isFocus" style="pointer-events: all;" class="f2l-input-icon" name="times" (click)="input.value = ''"></fa>
+</div>

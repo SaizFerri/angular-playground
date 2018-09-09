@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // SETTINGS
@@ -10,7 +11,9 @@
 
 // COMPONENTS
 @import "components/component.accordion.scss";
+@import "components/component.datepicker.scss";
 @import "components/component.inputs.scss";
+@import "components/component.modal.scss";
 @import "components/component.log.scss";
 
 html, body {
@@ -39,11 +42,17 @@ ul {
   margin: 0;
 }
 
+.content {
+  margin-top: 73px;
+}
+
 /**
 * Button
 */
 .button {
   border: none;
+  font-family: $global-font-family;
+  font-weight: 400;
   width: auto;
   display: inline-block;
   appearance: none;
@@ -103,6 +112,10 @@ ul {
   }
 }
 .menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -113,10 +126,13 @@ ul {
   background-color: $color-blue;
 
   &.mobile {
-    padding: .5rem 2rem 0 2rem;
+    position: fixed;
+    margin-top: 73px;
+    height: 100%;
+    background: transparent;
+    padding: 0;
     flex-direction: column;
-    align-items: flex-start;
-    border-top: 1px solid $color-white;
+    align-items: flex-end;
   }
 
   .menubar_list {
@@ -147,12 +163,15 @@ ul {
 
     &.mobile {
       //max-height: 0;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-end;
       transition: all .5s ease;
-
-      &.show {
-        max-height: 200px;
-      }
+      background-color: $color-blue;
+      height: 100%;
+      padding: .5rem 3rem 2rem 3rem;
+      border-top: 1px solid $color-white;
 
       .menubar_list--item {
         padding: 0 0 1rem 0;
@@ -221,7 +240,7 @@ ul {
 }
 
 .filter {
-  border-bottom: 1px solid $color-grey;
+  //border-bottom: 1px solid $color-grey;
   padding: 1rem;
 
   .filter-pickers {

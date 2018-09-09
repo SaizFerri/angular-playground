@@ -3,24 +3,24 @@
 */
 .log {
   width: 100%;
-  padding: 1rem 0rem;
+  padding: 1rem 0;
   display: flex;
   flex-direction: row;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-bottom: 1px solid $color-grey;
   transition: border linear .1s;
 
   &:hover {
-    border: 1px solid $color-blue;
+    border: 2px solid $color-blue;
   }
 
   .log-date {
     padding-right: .5rem; 
-    flex-basis: 20%;
+    flex-basis: 25%;
   }
 
   .log-info {
-    flex-basis: 80%;
+    flex-basis: 75%;
     width: 100%;
 
     .log-info-time {

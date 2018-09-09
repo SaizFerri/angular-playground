@@ -15,8 +15,7 @@
 <form #logInForm="ngForm" (ngSubmit)="logIn(logInForm)" autocomplete="off">
   <div class="row justify-content-center pt-2" [class.pt-5]="!error" [class.pt-5]="!success">
     <div class="col-12 col-md-6 col-lg-6">    
-      <label for="">Email</label>
-      <input [(ngModel)]="user.email" required minlength="5" type="email" class="input" name="email" #email="ngModel" email>
+      <input [(ngModel)]="user.email" required minlength="5" type="email" placeholder="Email" class="input" name="email" #email="ngModel" email>
       <div class="alert alert-danger mt-1" [hidden]="email.valid || email.pristine || email.untouched">
         Email not valid.
       </div>
@@ -24,11 +23,7 @@
   </div>
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">    
-      <label for="">Password</label>
-      <input type="password" [(ngModel)]="user.password" minlength="3" required class="input" name="password" #password="ngModel">    
-      <div class="alert alert-danger mt-1" [hidden]="password.valid || password.pristine || password.untouched">
-        Password must be at least 3 characters long.
-      </div>
+      <input type="password" [(ngModel)]="user.password" placeholder="Password" required class="input" name="password" #password="ngModel">    
     </div>
   </div>
   <div class="row justify-content-center pt-3">

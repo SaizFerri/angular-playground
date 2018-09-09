@@ -1,0 +1,18 @@
+/*
+* Datepicker (ng-datepicker)
+*/
+.ngx-datepicker-container {
+
+  .ngx-datepicker-calendar-container {
+    z-index: 9000;
+    border-radius: 0!important;    
+  }
+
+  .ngx-datepicker-input {
+    font-size: $global-font-size !important;
+    width: 100% !important;
+    border: 1px solid $color-grey !important;
+    padding: .5rem .75rem !important;
+    margin-bottom: .5rem;
+  }
+}

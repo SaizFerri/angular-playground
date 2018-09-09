@@ -1,59 +1,67 @@
-<button *ngIf="!show" class="button" (click)="showFilterPanel()">Filter &nbsp; <fa name="sliders"></fa></button>
-<div *ngIf="show" class="filter">
-    <div class="row no-gutters">
-        <div class="col-sm-6 col-lg-6">
-            <label>Date: </label>
-            <div class="row no-gutters">
-                <div class="col-sm-12 col-lg-6 p-lg-0">
-                    <input class="input mr-2" placeholder="From" type="text">
+<button class="button" (click)="open(content)">Filter &nbsp; <fa name="sliders"></fa></button>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Filter</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="filter">
+        <div class="row no-gutters">
+            <div class="col-sm-6 col-lg-6">
+                <label>Date: </label>
+                <div class="row no-gutters">
+                    <div class="col-sm-12 col-lg-6 pr-lg-1">
+                        <ng-datepicker [(ngModel)]="fromDate" [options]="options"></ng-datepicker>  
+                    </div>
+                    <div class="col-sm-12 col-lg-6 pr-lg-1">
+                        <ng-datepicker [(ngModel)]="toDate" [options]="options"></ng-datepicker> 
+                    </div>
                 </div>
-                <div class="col-sm-12 col-lg-6">
-                    <input class="input" placeholder="To" type="text">
+            </div>
+            <div class="col-sm-6 col-lg-6">
+                <label>Aerodromes: </label>
+                <div class="row no-gutters">
+                    <div class="col-sm-12 col-lg-6 px-sm-1 p-lg-0">
+                        <input class="input mr-2" placeholder="From" type="text">
+                    </div>
+                    <div class="col-sm-12 col-lg-6 px-sm-1">
+                        <input class="input" placeholder="To" type="text">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-6">
-            <label>Aerodromes: </label>
-            <div class="row no-gutters">
-                <div class="col-sm-12 col-lg-6 px-sm-1 p-lg-0">
-                    <input class="input mr-2" placeholder="From" type="text">
-                </div>
-                <div class="col-sm-12 col-lg-6 px-sm-0">
-                    <input class="input" placeholder="To" type="text">
+        <div class="row no-gutters pt-2">
+            <div class="col-sm-12 col-lg-3">
+                <label>Daytime: </label>
+                <div class="row no-gutters">
+                    <div class="col-6">
+                        <input class="checkbox" type="checkbox" id="daytime">
+                        <label class="label" for="daytime">Day</label>
+                    </div>
+                    <div class="col-6">
+                        <input class="checkbox" type="checkbox" id="nighttime">
+                        <label class="label" for="nighttime">Night</label>
+                    </div>
                 </div>
             </div>
+            <div class="col-sm-12 col-lg-9">
+                <label>Aircraft: </label>
+                <div class="row no-gutters">
+                    <div class="col-sm-12 col-lg-4 pl-0 pr-lg-1">
+                        <input type="text" class="input mr-2" placeholder="Registration">
+                    </div>
+                    <div class="col-sm-12 col-lg-4 pl-0 pr-lg-1">
+                        <input type="text" class="input mr-2" placeholder="Model">
+                    </div>
+                    <div class="col-sm-12 col-lg-4 pl-0">
+                        <input type="text" class="input" placeholder="Type">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filter-action">
+            <button class="button button-primary mt-2" (click)="applyFilter()">Apply filter</button>
         </div>
     </div>
-    <div class="row no-gutters pt-2">
-        <div class="col-sm-12 col-lg-3">
-            <label>Daytime: </label>
-            <div class="row no-gutters">
-                <div class="col-6">
-                    <input class="checkbox" type="checkbox" id="daytime">
-                    <label class="label" for="daytime">Day</label>
-                </div>
-                <div class="col-6">
-                    <input class="checkbox" type="checkbox" id="nighttime">
-                    <label class="label" for="nighttime">Night</label>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-lg-9">
-            <label>Aircraft: </label>
-            <div class="row no-gutters">
-                <div class="col-sm-12 col-lg-4 pl-0">
-                    <input type="text" class="input mr-2" placeholder="Registration">
-                </div>
-                <div class="col-sm-12 col-lg-4 pl-0">
-                    <input type="text" class="input mr-2" placeholder="Model">
-                </div>
-                <div class="col-sm-12 col-lg-4 pl-0">
-                    <input type="text" class="input" placeholder="Type">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="filter-action">
-        <button class="button button-primary mt-2" (click)="showFilterPanel()">Apply filter</button>
-    </div>
-</div>
+</ng-template>

@@ -1,0 +1,6 @@
+<div class="f2l-select-wrapper">
+  <select [(ngModel)]="selectedValue">
+      <option selected="true" disabled="true">{{ placeholder }}</option>
+      <option *ngFor="let item of items" [value]="item">{{ item }}</option>
+    </select>
+</div>

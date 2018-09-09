@@ -1,0 +1,35 @@
+/*
+* Modal (ng-bootstrap)
+*/
+.modal {  
+  height: 100%;
+  padding-top: 73px;
+
+  .modal-dialog {
+    margin: 0;    
+  
+    .modal-content {
+      height: 100%;
+      border: 0;
+      border-radius: 0;
+  
+      .modal-header {
+        border: 0;
+        border-radius: 0;
+        padding: 1rem 1rem 0 1rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .modal-dialog {
+      margin: 1rem auto;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .modal-dialog {
+      max-width: 750px;
+    }
+  }
+}

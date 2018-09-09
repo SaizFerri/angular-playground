@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,10 +22,13 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { AdminModule } from './admin/admin.module';
 import { environment } from '../environments/environment';
 import { MetarService } from './services/metar.service';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MetarComponent } from './components/metar/metar.component';
 import { LogbookModule } from './logbook/logbook.module';
 import { LogbookService } from './services/logbook.service';
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from './shared/shared.module';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -45,13 +49,16 @@ export function getToken() {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AdminModule,
     LogbookModule,
+    SharedModule,
     AngularFontAwesomeModule,
+    NgbModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: getToken,

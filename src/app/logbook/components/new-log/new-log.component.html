@@ -1,6 +1,12 @@
 <form class="pt-4">
-  <div class="row">
-    <div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-12">
+            
+        </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <app-f2l-select (select)="getFlightRole($event)" [items]="flightRoleItems()" [placeholder]="rolesPlaceholder"></app-f2l-select>  
+        </div>
+    </div>
 </form>

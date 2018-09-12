@@ -1,12 +1,82 @@
-<form class="pt-4">
-    <div class="row">
-        <div class="col-sm-12">
-            
+<div class="pt-2 row no-gutters">
+    <div class="col-sm-12">
+        <button class="button" (click)="navigateBack()"><fa name="arrow-left"></fa> &nbsp; Back</button>
+    </div>
+</div>
+<form class="pt-2 pb-2">
+    <div class="row no-gutters">
+        <div class="col-sm-12 col-lg-8">
+            <label for="">Date</label>
+            <ng-datepicker [(ngModel)]="date" name="date" [options]="dateOptions"></ng-datepicker>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
+    <div class="row no-gutters">
+        <div class="col-sm-12 col-lg-8">
+            <label for="">Aircraft</label>
+            <input type="text" value="D-EPPO, DA-20 Katana" class="input">
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-sm-12 col-lg-8">
+            <label for="">Crew</label>
+            <input type="text" value="Self" class="input">
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-sm-12 col-lg-8">
+            <label for="">Choose a role</label>
             <app-f2l-select (select)="getFlightRole($event)" [items]="flightRoleItems()" [placeholder]="rolesPlaceholder"></app-f2l-select>  
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-sm-12 col-md-6 col-lg-4 pr-lg-1">
+            <label for="">From</label>
+            <input type="text" value="EDAY" class="input">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <label for="">To</label>
+            <input type="text" class="input">
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-sm-12 col-md-6 col-lg-4 pr-lg-1">
+            <label for="">Block start</label>
+            <input type="text" class="input">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <label for="">Block end</label>
+            <input type="text" class="input">
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-6 col-sm-6 col-lg-4 pr-1">
+            <label for="">Take offs day</label>
+            <input type="number" value="1" class="input">
+        </div>
+        <div class="col-6 col-sm-6 col-lg-4">
+            <label for="">Take offs night</label>
+            <input type="number" class="input">
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-6 col-sm-6 col-lg-4 pr-1">
+            <label for="">Landings day</label>
+            <input type="number" value="1" class="input">
+        </div>
+        <div class="col-6 col-sm-6 col-lg-4">
+            <label for="">Landings night</label>
+            <input type="number" class="input">
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-sm-12 col-lg-8">
+            <label for="">Remarks</label>
+            <textarea name="" id="" cols="10" rows="3" class="input"></textarea>
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-12 col-sm-12 col-lg-12">
+            <button class="button button-primary w-100">Log</button>
         </div>
     </div>
 </form>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlightRoleEnum } from '../../enum/flight-role.enum';
+import { DatepickerOptions } from 'ng2-datepicker';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-log',
@@ -14,10 +16,23 @@ export class NewLogComponent implements OnInit {
   rolesPlaceholder: FlightRoleEnum = FlightRoleEnum.PILOT;
   role: string = 'Pilot';
   date: Date;
+  dateOptions: DatepickerOptions = {
+    minYear: 1970,
+    maxYear: 2030,
+    displayFormat: 'YYYY-MM-DD',
+    barTitleFormat: 'MMMM YYYY',
+    dayNamesFormat: 'dd',
+    placeholder: 'yyyy-mm-dd',
+    useEmptyBarTitle: false
+  };
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit() {
+  }
+
+  navigateBack() {
+    this.router.navigate(['/logbook/logs']);
   }
 
   getFlightRole(selected: string) {

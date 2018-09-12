@@ -15,4 +15,9 @@ export class LogbookService {
     const apiPath = '/logbook';
     return this.http.get(`${environment.apiUrl}${apiPath}`);
   }
+
+  getLog(id: string): Observable<any> {
+    const apiPath = '/logbook/';
+    return this.http.get(`${environment.apiUrl}${apiPath}${id}`);
+  }
 }

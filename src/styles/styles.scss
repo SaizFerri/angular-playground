@@ -46,6 +46,12 @@ ul {
   margin-top: 73px;
 }
 
+.line {
+  background-color: $color-black;
+  height: 1px;
+  width: 10%;
+}
+
 /**
 * Button
 */
@@ -57,6 +63,8 @@ ul {
   display: inline-block;
   appearance: none;
   transition: all .1s linear;
+  //background: url('../assets/gifix.gif');
+  //background-position: center;
   background-color: $color-grey;
   border: 1px solid $color-grey;
   color: #000;

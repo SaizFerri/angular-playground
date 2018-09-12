@@ -27,12 +27,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      .line {
-        background-color: $color-black;
-        height: 1px;
-        width: 10%;
-      }
     }
 
     .log-info-fromto {

@@ -1,11 +1,16 @@
-<div *ngIf="error" class="row justify-content-center pt-5">
+<div class="row pt-4">
+  <div class="col-12">
+    <h3>Login</h3>
+  </div>
+</div>
+<div *ngIf="error" class="row justify-content-center pt-2">
   <div class="col-12 col-md-6 col-lg-6">
     <div class="alert alert-danger">
       Email or password wrong.
     </div>
   </div>
 </div>
-<div *ngIf="success" class="row justify-content-center pt-5">
+<div *ngIf="success" class="row justify-content-center pt-2">
   <div class="col-12 col-md-6 col-lg-6">
     <div class="alert alert-success">
       Log in success.
@@ -13,7 +18,7 @@
   </div>
 </div>
 <form #logInForm="ngForm" (ngSubmit)="logIn(logInForm)" autocomplete="off">
-  <div class="row justify-content-center pt-2" [class.pt-5]="!error" [class.pt-5]="!success">
+  <div class="row justify-content-center pt-2">
     <div class="col-12 col-md-6 col-lg-6">    
       <input [(ngModel)]="user.email" required minlength="5" type="email" placeholder="Email" class="input" name="email" #email="ngModel" email>
       <div class="alert alert-danger mt-1" [hidden]="email.valid || email.pristine || email.untouched">
@@ -28,7 +33,7 @@
   </div>
   <div class="row justify-content-center pt-3">
     <div class="col-12 col-md-6 col-lg-6">
-      <button class="button button-primary" [disabled]="logInForm.form.invalid" type="submit">
+      <button class="button button-primary w-100" [disabled]="logInForm.form.invalid" type="submit">
         <span *ngIf="!isLoading">Login</span>
         <fa *ngIf="isLoading" name="spinner" size="lg" animation="spin"></fa>
       </button>

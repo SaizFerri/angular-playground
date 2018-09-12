@@ -1,3 +1,30 @@
-<p>
-  logbook-detail works!
-</p>
+<div class="row no-gutters pt-4" *ngIf="isLoading">
+    <div class="col-12 d-flex justify-content-center">
+        <fa name="spinner" size="lg" animation="spin"></fa>
+    </div>
+</div>
+<div *ngIf="dataLoaded">
+    <div class="pt-4 row no-gutters">
+        <div class="col-4">
+            <h3>{{ data.from.name }}</h3>
+        </div>
+        <div class="col-4 d-flex align-items-center justify-content-center">
+            <span>{{ data.time.total }} hrs</span>
+        </div>
+        <div class="col-4 d-flex justify-content-end">
+            <h3>{{ data.to.name }}</h3>
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-12">
+            <span>Date: </span>
+            <span>{{ data.date | date:"dd-MM-yyyy" }}</span>
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-12">
+            <span>PIC: </span>
+            <span>{{ data.pic.name }}</span>
+        </div>
+    </div>
+</div>

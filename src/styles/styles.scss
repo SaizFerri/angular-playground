@@ -1,4 +1,3 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // SETTINGS
@@ -52,6 +51,25 @@ ul {
   width: 10%;
 }
 
+.header-img {
+  overflow: hidden;
+  width: 100%;
+  height: 50vh;
+  background-image: url("../assets/img/header.jpg");
+  background-size: cover;
+  background-position: center 70%;
+
+  @include media-breakpoint-up(md) {
+    height: 40vh;
+    background-position: center 90%;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 60vh;
+    background-position: center 70%;
+  }
+}
+
 /**
 * Button
 */
@@ -92,6 +110,17 @@ ul {
       background-color: $color-blue;
     }
   }
+
+  &.button-filter {
+    color: $color-blue;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      color: $color-dark-blue;
+    }
+  }
 }
 
 .a-link {
@@ -123,7 +152,7 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 9990;
   display: flex;
   justify-content: space-between;
   width: 100%;

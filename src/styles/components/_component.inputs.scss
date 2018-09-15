@@ -4,10 +4,14 @@
 .input {
   display: block;
   width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   outline: none;
+  -webkit-transition: all linear .1s;
   transition: all linear .1s;
-  border: 1px solid $color-grey;
+  border: 1px solid $color-grey!important;
+  border-radius: none!important;
   padding: .5rem .75rem;
   margin-bottom: .5rem;
 
@@ -30,6 +34,7 @@
     z-index: 998;
     right: 1rem;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
 }
@@ -46,7 +51,7 @@
     max-height: 400px;
     background-color: #fff;
     overflow: auto;
-    z-index: 9999;
+    z-index: 5555;
 
     li {
       list-style: none;
@@ -83,6 +88,7 @@
     border-right: 1px solid $color-black;
     top: 30%;
     right: 1rem;
+    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     pointer-events: none;
     //transform: translateY(-50%);

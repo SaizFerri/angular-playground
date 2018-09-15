@@ -5,6 +5,7 @@ import { LogbookListComponent } from './components/logbook-list/logbook-list.com
 import { LogbookParentComponent } from './components/logbook-parent/logbook-parent.component';
 import { LogbookDetailComponent } from './components/logbook-detail/logbook-detail.component';
 import { NewLogComponent } from './components/new-log/new-log.component';
+import { LogbookDashboardComponent } from './components/logbook-dashboard/logbook-dashboard.component';
 
 const logbookRoutes: Routes = [ 
   {
@@ -16,6 +17,7 @@ const logbookRoutes: Routes = [
         path: '',
         canActivate: [AuthGuard],
         children: [
+          { path: 'dashboard', component: LogbookDashboardComponent },
           { path: 'new', component: NewLogComponent },
           { path: 'logs', component: LogbookListComponent },
           { path: 'logs/:id', component: LogbookDetailComponent }

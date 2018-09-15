@@ -1,10 +1,11 @@
 <button class="button" (click)="open(content)">Filter &nbsp; <fa name="sliders"></fa></button>
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Filter</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <a (click)="modal.dismiss()">
+            <fa name="arrow-left"></fa>
+        </a>
+        <span id="modal-basic-title">Filter</span>
+        <button class="button button-filter" (click)="applyFilter()">Apply filter</button>
     </div>
     <div class="filter">
         <div class="row no-gutters">
@@ -59,9 +60,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="filter-action">
-            <button class="button button-primary mt-2" (click)="applyFilter()">Apply filter</button>
         </div>
     </div>
 </ng-template>

@@ -4,6 +4,7 @@
     <ul class="menubar_list d-none d-sm-none d-md-none d-lg-flex d-xl-flex">
         <li class="menubar_list--item" *ngIf="showAdminButton && (isLoggedIn$ | async)"><a routerLink="/undinosaurio/users" style="color: yellow;">Admin</a></li>
         <li class="menubar_list--item" *ngIf="isLoggedIn$ | async">{{ user }}</li>
+        <li class="menubar_list--item" *ngIf="isLoggedIn$ | async"><a routerLink="/logbook/dashboard" routerLinkActive="selected">Dashboard</a></li>
         <li class="menubar_list--item" *ngIf="isLoggedIn$ | async"><a routerLink="/logbook/logs" routerLinkActive="selected">Logbook</a></li>
         <li class="menubar_list--item" *ngIf="!(isLoggedIn$ | async)"><a routerLink="/register" routerLinkActive="selected">Register</a></li>
         <li class="menubar_list--item" *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login" routerLinkActive="selected">Login</a></li>
@@ -14,6 +15,7 @@
     <ul class="menubar_list mobile">
         <li class="menubar_list--item" *ngIf="showAdminButton && (isLoggedIn$ | async)"><a routerLink="/undinosaurio/users" style="color: yellow;">Admin</a></li>
         <li class="menubar_list--item" *ngIf="isLoggedIn$ | async">{{ user }}</li>
+        <li class="menubar_list--item" *ngIf="isLoggedIn$ | async"><a routerLink="/logbook/dashboard" routerLinkActive="selected">Dashboard</a></li>
         <li class="menubar_list--item" *ngIf="isLoggedIn$ | async"><a routerLink="/logbook/logs" routerLinkActive="selected">Logbook</a></li>
         <li class="menubar_list--item" *ngIf="!(isLoggedIn$ | async)"><a routerLink="/register" routerLinkActive="selected">Register</a></li>
         <li class="menubar_list--item" *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login" routerLinkActive="selected">Login</a></li>

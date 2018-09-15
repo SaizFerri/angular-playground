@@ -15,6 +15,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { SharedModule } from '../shared/shared.module';
+import { LogbookDashboardComponent } from './components/logbook-dashboard/logbook-dashboard.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,6 @@ import { SharedModule } from '../shared/shared.module';
     NgbModule,
     NgDatepickerModule
   ],
-  declarations: [LogbookListComponent, LogbookDetailComponent, LogbookFilterComponent, LogbookParentComponent, LogComponent, NewLogComponent]
+  declarations: [LogbookListComponent, LogbookDetailComponent, LogbookFilterComponent, LogbookParentComponent, LogComponent, NewLogComponent, LogbookDashboardComponent]
 })
 export class LogbookModule { }

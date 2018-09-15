@@ -34,8 +34,7 @@ export class LogbookFilterComponent implements OnInit {
   }
 
   applyFilter(): void {
-    console.log(moment(this.fromDate).format('YYYY-MM-DD'));
-    
+    this.modalService.dismissAll();
   }
 
 }
